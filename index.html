@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liberação de acessos | Mais Consultório Menos Plantão</title>
+<meta name="description" content="Passo a passo para criar suas contas no Meta Ads e Google Ads e liberar o acesso para a nossa equipe.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Crect width='64' height='48' rx='10' fill='%23123A5C'/%3E%3Cg fill='none' stroke='%2332E8C8' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M28.3 13.7A14 14 0 1 0 28.3 34.3'/%3E%3Cpath d='M37.3 13.7A14 14 0 1 0 37.3 34.3'/%3E%3C/g%3E%3Cpath fill='%2332E8C8' d='M49 10Q50 17 56 18Q50 19 49 26Q48 19 42 18Q48 17 49 10Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#123A5C;
+  --navy-deep:#0B2740;
+  --turq:#32E8C8;
+  --turq-soft:#D9FBF4;
+  --mist:#EDF0F3;
+  --line:#CBD5DE;
+  --ink:#1B2B3A;
+  --muted:#5A6B7B;
+  --white:#FFFFFF;
+  --serif:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 24px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--mist);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--navy)}
+:focus-visible{outline:3px solid var(--turq);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;right:-180px;top:-120px;width:560px;height:560px;border-radius:50%;
+  border:2px solid rgba(50,232,200,.18);pointer-events:none}
+.hero::before{
+  content:"";position:absolute;right:-60px;top:-120px;width:560px;height:560px;border-radius:50%;
+  border:2px solid rgba(50,232,200,.12);pointer-events:none}
+.brand{display:flex;align-items:center;gap:14px;padding-top:32px}
+.brand svg{width:58px;height:44px;flex:none}
+.brand-name{font-family:var(--serif);line-height:1.1}
+.brand-name b{display:block;font-weight:600;font-size:20px}
+.brand-name span{font-size:15px;opacity:.85}
+.hero-body{padding:72px 0 64px;max-width:640px;position:relative;z-index:1}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,6vw,60px);line-height:1.08;margin:0 0 20px;letter-spacing:-.01em}
+.hero p{font-size:19px;margin:0;color:rgba(255,255,255,.82);max-width:54ch}
+
+/* ---------- PATH CHOOSER ---------- */
+.chooser{position:relative;z-index:2;margin-top:-1px;background:var(--navy);padding-bottom:56px}
+.chooser h2{font-family:var(--serif);color:var(--white);font-weight:500;font-size:24px;margin:0 0 18px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.path{
+  text-align:left;cursor:pointer;font:inherit;color:var(--white);
+  background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.22);
+  border-radius:18px;padding:26px 26px 24px;transition:border-color .2s,background .2s}
+.path:hover{border-color:var(--turq);background:rgba(50,232,200,.06)}
+.path[aria-pressed="true"]{background:var(--turq);border-color:var(--turq);color:var(--navy-deep)}
+.path .tag{display:inline-block;font-size:13px;font-weight:600;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.12);margin-bottom:14px}
+.path[aria-pressed="true"] .tag{background:var(--navy);color:var(--white)}
+.path strong{display:block;font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2;margin-bottom:8px}
+.path span.desc{font-size:15.5px;opacity:.85;display:block}
+.chooser-note{color:rgba(255,255,255,.7);font-size:15px;margin:16px 0 0}
+
+/* ---------- PLATFORM SECTIONS ---------- */
+main{padding:72px 0 24px}
+.platform{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:56px 0;border-top:1px solid var(--line)}
+.platform:first-child{border-top:0;padding-top:0}
+.plat-head h2{font-family:var(--serif);font-weight:600;font-size:36px;line-height:1.1;margin:0 0 10px;color:var(--navy)}
+.plat-head p{margin:0 0 20px;color:var(--muted);font-size:15.5px}
+.plat-head{position:sticky;top:24px;align-self:start}
+
+.switch{display:inline-flex;background:var(--white);border:1px solid var(--line);border-radius:99px;padding:4px;gap:4px;flex-wrap:wrap}
+.switch button{font:inherit;font-size:14.5px;font-weight:600;border:0;background:transparent;color:var(--muted);padding:9px 16px;border-radius:99px;cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--navy);color:var(--white)}
+
+.panel[hidden]{display:none}
+.panel-intro{
+  background:var(--white);border-left:4px solid var(--turq);border-radius:0 14px 14px 0;
+  padding:18px 22px;margin-bottom:28px;font-size:16px}
+.panel-intro b{color:var(--navy)}
+
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps>li{counter-increment:s;position:relative;padding:0 0 30px 62px}
+ol.steps>li::before{
+  content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:18px;
+  background:var(--white);color:var(--navy);border:1.5px solid var(--navy)}
+ol.steps>li::after{content:"";position:absolute;left:20px;top:46px;bottom:6px;width:1.5px;background:var(--line)}
+ol.steps>li:last-child::after{display:none}
+ol.steps>li:last-child{padding-bottom:0}
+ol.steps>li.key::before{background:var(--turq);border-color:var(--turq);color:var(--navy-deep)}
+.steps h3{font-family:var(--serif);font-size:22px;font-weight:600;margin:4px 0 8px;color:var(--navy);line-height:1.25}
+.steps p{margin:0 0 10px;max-width:62ch}
+.steps ul{margin:6px 0 10px;padding-left:20px}
+.steps ul li{margin:3px 0}
+.menu{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:15px;font-weight:500;color:var(--navy);margin:2px 0 10px}
+.menu i{font-style:normal;color:var(--muted)}
+.warn{background:#FFF6E0;border:1px solid #F1D48A;border-radius:10px;padding:10px 14px;font-size:15px;margin:6px 0 10px;max-width:62ch}
+
+.id-box{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--navy);color:var(--white);
+  border-radius:14px;padding:16px 18px;margin:8px 0 12px;max-width:520px}
+.id-box small{display:block;font-size:13px;opacity:.75}
+.id-box code{font-family:var(--sans);font-size:24px;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.copy{margin-left:auto;font:inherit;font-size:14.5px;font-weight:600;border:0;border-radius:99px;padding:10px 18px;background:var(--turq);color:var(--navy-deep);cursor:pointer}
+.copy:hover{filter:brightness(1.05)}
+
+.perms{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px;padding:0;list-style:none}
+.perms li{background:var(--turq-soft);color:var(--navy);font-weight:600;font-size:14.5px;border-radius:99px;padding:6px 14px}
+
+/* ---------- CHECKLIST ---------- */
+.final{background:var(--white);border-radius:24px;padding:48px;margin:40px 0 72px;display:grid;grid-template-columns:1fr 1fr;gap:48px;border:1px solid var(--line)}
+.final h2{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.12;margin:0 0 12px;color:var(--navy)}
+.final p{color:var(--muted);margin:0 0 20px}
+.checks{list-style:none;margin:0;padding:0}
+.checks li{border-bottom:1px solid var(--mist)}
+.checks label{display:flex;gap:14px;align-items:center;padding:13px 0;cursor:pointer;font-weight:500}
+.checks input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--navy);display:grid;place-items:center;cursor:pointer;margin:0}
+.checks input:checked{background:var(--turq);border-color:var(--turq)}
+.checks input:checked::after{content:"";width:6px;height:11px;border:solid var(--navy-deep);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.checks input:checked + span{color:var(--muted);text-decoration:line-through}
+.progress{font-size:14.5px;font-weight:600;color:var(--navy);margin-top:16px}
+.cta{display:inline-block;font:inherit;font-weight:600;font-size:16px;border:0;border-radius:99px;padding:14px 24px;background:var(--navy);color:var(--white);cursor:pointer;margin-top:4px}
+.cta:hover{background:var(--navy-deep)}
+.cta-note{font-size:14px;color:var(--muted);margin-top:10px}
+
+footer{background:var(--navy-deep);color:rgba(255,255,255,.7);font-size:14px;padding:32px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .brand{padding:0}
+footer .brand svg{width:44px;height:34px}
+footer .brand-name b{font-size:16px;color:var(--white)}
+footer .brand-name span{font-size:13px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--navy-deep);color:var(--white);padding:12px 20px;border-radius:99px;font-size:15px;font-weight:500;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:820px){
+  .platform{grid-template-columns:1fr;gap:28px}
+  .plat-head{position:static}
+  .final{grid-template-columns:1fr;padding:32px 24px;gap:32px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .paths{grid-template-columns:1fr}
+  .hero-body{padding:48px 0 44px}
+  ol.steps>li{padding-left:54px}
+  .id-box code{font-size:20px}
+  .copy{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 64 48">
+    <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+      <path d="M28.3 13.7A14 14 0 1 0 28.3 34.3"/>
+      <path d="M37.3 13.7A14 14 0 1 0 37.3 34.3"/>
+    </g>
+    <path fill="var(--turq)" d="M49 10Q50 17 56 18Q50 19 49 26Q48 19 42 18Q48 17 49 10Z"/>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg style="color:#fff"><use href="#logo"/></svg>
+      <div class="brand-name"><b>Mais Consultório</b><span>Menos Plantão</span></div>
+    </div>
+    <div class="hero-body">
+      <h1>Liberação de acessos para as suas campanhas</h1>
+      <p>Para configurarmos e gerenciarmos seus anúncios no Meta (Facebook e Instagram) e no Google, precisamos de acesso às suas contas. Leva poucos minutos.</p>
+    </div>
+  </div>
+</header>
+
+<section class="chooser" aria-labelledby="chooser-title">
+  <div class="wrap">
+    <h2 id="chooser-title">Qual é a sua situação hoje?</h2>
+    <div class="paths" role="group" aria-label="Escolha sua situação">
+      <button class="path" type="button" data-set="novo" aria-pressed="false">
+        <span class="tag">Começando do zero</span>
+        <strong>Ainda não tenho conta de anúncios</strong>
+        <span class="desc">Você vai criar o Business Manager, a conta de anúncios e depois liberar o acesso para a nossa equipe.</span>
+      </button>
+      <button class="path" type="button" data-set="existente" aria-pressed="false">
+        <span class="tag">Caminho rápido</span>
+        <strong>Já tenho conta e só preciso liberar acesso</strong>
+        <span class="desc">Você pula a criação e vai direto para a etapa de conceder acesso como parceiro.</span>
+      </button>
+    </div>
+    <p class="chooser-note">Pode ser que você tenha conta no Meta e não no Google (ou o contrário). Dentro de cada plataforma abaixo você pode trocar o caminho separadamente.</p>
+  </div>
+</section>
+
+<main class="wrap" id="conteudo">
+
+  <!-- ================= META ================= -->
+  <section class="platform" id="meta" aria-labelledby="meta-title">
+    <div class="plat-head">
+      <h2 id="meta-title">Meta Ads</h2>
+      <p>Facebook e Instagram</p>
+      <div class="switch" role="tablist" aria-label="Situação no Meta">
+        <button role="tab" id="meta-tab-novo" aria-controls="meta-novo" aria-selected="true" data-group="meta" data-mode="novo">Não tenho conta</button>
+        <button role="tab" id="meta-tab-existente" aria-controls="meta-existente" aria-selected="false" data-group="meta" data-mode="existente">Já tenho conta</button>
+      </div>
+    </div>
+
+    <div>
+      <!-- Meta: novo -->
+      <div class="panel" id="meta-novo" role="tabpanel" aria-labelledby="meta-tab-novo">
+        <div class="panel-intro">São <b>6 etapas</b>: da criação do Business Manager até a liberação do acesso para a nossa equipe.</div>
+        <ol class="steps">
+          <li>
+            <h3>Acesse o Gerenciador de Negócios</h3>
+            <p>Entre em <a href="https://business.facebook.com/" target="_blank" rel="noopener">business.facebook.com</a> e faça login com a sua conta pessoal do Facebook.</p>
+          </li>
+          <li>
+            <h3>Crie o Business Manager</h3>
+            <p>Clique em <b>Criar conta</b> e preencha:</p>
+            <ul><li>Nome da empresa</li><li>Seu nome</li><li>E-mail comercial</li></ul>
+            <p>Depois clique em <b>Enviar</b>.</p>
+          </li>
+          <li>
+            <h3>Crie ou vincule uma Página</h3>
+            <p>No menu lateral, vá em:</p>
+            <div class="menu">Configurações da empresa <i>›</i> Contas <i>›</i> Páginas</div>
+            <p>Você pode adicionar uma Página que já existe ou criar uma nova.</p>
+          </li>
+          <li>
+            <h3>Crie a conta de anúncios</h3>
+            <div class="menu">Configurações da empresa <i>›</i> Contas <i>›</i> Contas de anúncios</div>
+            <p>Clique em <b>Adicionar</b> e depois em <b>Criar nova conta de anúncios</b>. Configure:</p>
+            <ul><li>Nome da conta</li><li>Fuso horário: Brasília</li><li>Moeda: Real brasileiro (BRL)</li></ul>
+            <div class="warn">Atenção: se você escolher uma moeda diferente de BRL, não será possível mudar para real depois.</div>
+          </li>
+          <li>
+            <h3>Adicione a forma de pagamento</h3>
+            <div class="menu">Configurações de pagamento</div>
+            <p>Cadastre um cartão de crédito ou outro método de pagamento.</p>
+          </li>
+          <li class="key">
+            <h3>Conceda acesso para a nossa equipe</h3>
+            <p>Siga exatamente o mesmo processo do caminho “Já tenho conta”:</p>
+            <div class="menu">Configurações da empresa <i>›</i> Usuários <i>›</i> Parceiros</div>
+            <p>Clique em <b>Adicionar parceiro</b>, selecione <b>Conceder acesso a um parceiro</b> e informe o ID do nosso Gerenciador de Negócios:</p>
+            <div class="id-box">
+              <div><small>ID do nosso Gerenciador de Negócios</small><code>454759759384622</code></div>
+              <button class="copy" type="button" data-copy="454759759384622">Copiar ID</button>
+            </div>
+            <p>Ative todas as permissões necessárias para:</p>
+            <ul class="perms"><li>Página</li><li>Conta de anúncios</li><li>Pixel</li><li>Instagram</li></ul>
+            <p>Clique em <b>Salvar</b>.</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Meta: existente -->
+      <div class="panel" id="meta-existente" role="tabpanel" aria-labelledby="meta-tab-existente" hidden>
+        <div class="panel-intro">Você já tem Business Manager e conta de anúncios, então só precisa <b>adicionar a nossa empresa como parceira</b>.</div>
+        <ol class="steps">
+          <li>
+            <h3>Confira se está tudo dentro do seu Business Manager</h3>
+            <p>Entre em <a href="https://business.facebook.com/" target="_blank" rel="noopener">business.facebook.com</a> e verifique, em <b>Configurações da empresa › Contas</b>, se a sua Página, o Instagram e a conta de anúncios aparecem ali. Se algum deles estiver faltando, adicione antes de seguir.</p>
+          </li>
+          <li>
+            <h3>Abra a área de parceiros</h3>
+            <div class="menu">Configurações da empresa <i>›</i> Usuários <i>›</i> Parceiros</div>
+            <p>Clique em <b>Adicionar parceiro</b> e selecione <b>Conceder acesso a um parceiro</b>.</p>
+          </li>
+          <li class="key">
+            <h3>Informe o nosso ID</h3>
+            <div class="id-box">
+              <div><small>ID do nosso Gerenciador de Negócios</small><code>454759759384622</code></div>
+              <button class="copy" type="button" data-copy="454759759384622">Copiar ID</button>
+            </div>
+          </li>
+          <li>
+            <h3>Ative as permissões e salve</h3>
+            <p>Ative todas as permissões necessárias para:</p>
+            <ul class="perms"><li>Página</li><li>Conta de anúncios</li><li>Pixel</li><li>Instagram</li></ul>
+            <p>Clique em <b>Salvar</b>. Pronto, o acesso ao Meta está liberado.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GOOGLE ================= -->
+  <section class="platform" id="google" aria-labelledby="google-title">
+    <div class="plat-head">
+      <h2 id="google-title">Google Ads</h2>
+      <p>Pesquisa, YouTube e Maps</p>
+      <div class="switch" role="tablist" aria-label="Situação no Google">
+        <button role="tab" id="google-tab-novo" aria-controls="google-novo" aria-selected="true" data-group="google" data-mode="novo">Não tenho conta</button>
+        <button role="tab" id="google-tab-existente" aria-controls="google-existente" aria-selected="false" data-group="google" data-mode="existente">Já tenho conta</button>
+      </div>
+    </div>
+
+    <div>
+      <!-- Google: novo -->
+      <div class="panel" id="google-novo" role="tabpanel" aria-labelledby="google-tab-novo">
+        <div class="panel-intro">São <b>6 etapas</b>. No final, você nos envia o ID da conta e aprova a nossa solicitação de acesso.</div>
+        <ol class="steps">
+          <li>
+            <h3>Acesse o Google Ads</h3>
+            <p>Entre em <a href="https://ads.google.com/" target="_blank" rel="noopener">ads.google.com</a>, clique em <b>Começar agora</b> e faça login com a conta Google da empresa.</p>
+          </li>
+          <li>
+            <h3>Crie a conta sem campanha</h3>
+            <p>Se aparecer uma campanha automática, procure a opção <b>Alternar para o modo especialista</b> e depois clique em <b>Criar uma conta sem campanha</b>. Configure:</p>
+            <ul><li>País: Brasil</li><li>Moeda: Real brasileiro</li><li>Fuso horário: Brasil</li></ul>
+            <p>Confirme a criação.</p>
+          </li>
+          <li>
+            <h3>Adicione a forma de pagamento</h3>
+            <div class="menu">Ferramentas <i>›</i> Faturamento <i>›</i> Configurações</div>
+            <p>Cadastre a forma de pagamento da empresa.</p>
+          </li>
+          <li>
+            <h3>Encontre o ID da conta</h3>
+            <p>No canto superior direito da tela aparece um número neste formato:</p>
+            <div class="menu" style="font-size:18px;letter-spacing:.04em">123-456-7890</div>
+            <p>Esse é o ID da sua conta Google Ads.</p>
+          </li>
+          <li>
+            <h3>Envie o ID para a nossa equipe</h3>
+            <p>Mande para nós o <b>ID da conta Google Ads</b> e o <b>e-mail usado para criar a conta</b>. Com isso, enviamos uma solicitação de acesso.</p>
+          </li>
+          <li class="key">
+            <h3>Aprove o nosso acesso</h3>
+            <p>Quando receber a nossa solicitação, acesse:</p>
+            <div class="menu">Ferramentas <i>›</i> Acesso e segurança <i>›</i> Gerentes</div>
+            <p>Localize a nossa solicitação e clique em <b>Aprovar</b>.</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Google: existente -->
+      <div class="panel" id="google-existente" role="tabpanel" aria-labelledby="google-tab-existente" hidden>
+        <div class="panel-intro">Você já tem conta no Google Ads, então só precisa <b>nos enviar o ID e aprovar a solicitação</b> que vamos mandar.</div>
+        <ol class="steps">
+          <li>
+            <h3>Encontre o ID da conta</h3>
+            <p>Entre em <a href="https://ads.google.com/" target="_blank" rel="noopener">ads.google.com</a>. No canto superior direito aparece um número neste formato:</p>
+            <div class="menu" style="font-size:18px;letter-spacing:.04em">123-456-7890</div>
+          </li>
+          <li>
+            <h3>Envie o ID para a nossa equipe</h3>
+            <p>Mande para nós o <b>ID da conta Google Ads</b> e o <b>e-mail com que você acessa a conta</b>. Em seguida enviamos a solicitação de acesso.</p>
+          </li>
+          <li class="key">
+            <h3>Aprove o nosso acesso</h3>
+            <div class="menu">Ferramentas <i>›</i> Acesso e segurança <i>›</i> Gerentes</div>
+            <p>Localize a nossa solicitação e clique em <b>Aprovar</b>.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHECKLIST ================= -->
+  <section class="final" id="enviar" aria-labelledby="final-title">
+    <div>
+      <h2 id="final-title">Informações para nos enviar</h2>
+      <p>Depois de concluir os passos, envie estes itens para a nossa equipe. Use a lista ao lado para conferir o que já está pronto.</p>
+      <button class="cta" type="button" id="copy-msg">Copiar mensagem pronta</button>
+      <p class="cta-note">Copia um modelo com todos os itens para você completar e colar no WhatsApp ou no e-mail.</p>
+    </div>
+    <div>
+      <ul class="checks">
+        <li><label><input type="checkbox"><span>ID da conta Google Ads</span></label></li>
+        <li><label><input type="checkbox"><span>E-mail utilizado no Google Ads</span></label></li>
+        <li><label><input type="checkbox"><span>Confirmação de que o acesso ao Meta foi liberado</span></label></li>
+        <li><label><input type="checkbox"><span>Link da Página do Facebook</span></label></li>
+        <li><label><input type="checkbox"><span>Perfil do Instagram da empresa</span></label></li>
+      </ul>
+      <div class="progress" id="progress" aria-live="polite">0 de 5 itens prontos</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg style="color:#fff"><use href="#logo"/></svg>
+      <div class="brand-name"><b>Mais Consultório</b><span>Menos Plantão</span></div>
+    </div>
+    <span>Dúvidas em alguma etapa? Fale com a nossa equipe.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  const toast = document.getElementById('toast');
+  let t;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(t);
+    t = setTimeout(()=>toast.classList.remove('show'), 2200);
+  }
+  async function copyText(text){
+    try{ await navigator.clipboard.writeText(text); return true; }
+    catch(e){
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try{ ok = document.execCommand('copy'); }catch(_){}
+      ta.remove(); return ok;
+    }
+  }
+
+  // Tabs por plataforma
+  function setMode(group, mode){
+    document.querySelectorAll('[data-group="'+group+'"]').forEach(btn=>{
+      const on = btn.dataset.mode === mode;
+      btn.setAttribute('aria-selected', on);
+      btn.tabIndex = on ? 0 : -1;
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  document.querySelectorAll('[role="tab"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      setMode(btn.dataset.group, btn.dataset.mode);
+      syncChooser();
+    });
+    btn.addEventListener('keydown', e=>{
+      if(e.key!=='ArrowRight' && e.key!=='ArrowLeft') return;
+      const sib = [...document.querySelectorAll('[data-group="'+btn.dataset.group+'"]')];
+      const next = sib[(sib.indexOf(btn)+1)%sib.length];
+      next.click(); next.focus();
+    });
+  });
+
+  // Escolha geral no topo
+  const paths = document.querySelectorAll('.path');
+  function syncChooser(){
+    const m = document.querySelector('[data-group="meta"][aria-selected="true"]').dataset.mode;
+    const g = document.querySelector('[data-group="google"][aria-selected="true"]').dataset.mode;
+    paths.forEach(p=>p.setAttribute('aria-pressed', (m===g && touched && p.dataset.set===m)));
+  }
+  let touched = false;
+  paths.forEach(p=>{
+    p.addEventListener('click', ()=>{
+      touched = true;
+      setMode('meta', p.dataset.set);
+      setMode('google', p.dataset.set);
+      syncChooser();
+      document.getElementById('conteudo').scrollIntoView();
+    });
+  });
+
+  // Copiar ID
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const ok = await copyText(btn.dataset.copy);
+      showToast(ok ? 'ID copiado' : 'Não foi possível copiar. Selecione o número manualmente.');
+      if(ok){ const o = btn.textContent; btn.textContent='Copiado'; setTimeout(()=>btn.textContent=o, 1800); }
+    });
+  });
+
+  // Checklist
+  const boxes = document.querySelectorAll('.checks input');
+  const prog = document.getElementById('progress');
+  function updateProg(){
+    const n = [...boxes].filter(b=>b.checked).length;
+    prog.textContent = n === boxes.length ? 'Tudo pronto. É só nos enviar.' : n+' de '+boxes.length+' itens prontos';
+  }
+  boxes.forEach(b=>b.addEventListener('change', updateProg));
+
+  // Mensagem pronta
+  document.getElementById('copy-msg').addEventListener('click', async ()=>{
+    const msg = [
+      'Olá! Seguem as informações para as campanhas:',
+      '',
+      'ID da conta Google Ads: ',
+      'E-mail utilizado no Google Ads: ',
+      'Acesso ao Meta liberado: sim',
+      'Link da Página do Facebook: ',
+      'Perfil do Instagram: @'
+    ].join('\n');
+    const ok = await copyText(msg);
+    showToast(ok ? 'Mensagem copiada. Complete e envie.' : 'Não foi possível copiar a mensagem.');
+  });
+})();
+</script>
+</body>
+</html>
